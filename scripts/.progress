@@ -1,0 +1,22 @@
+#!/bin/bash
+prog() {
+count="0" # count
+
+while [ $count -lt $1 ]
+do
+  case "$(($count % 4))" in
+    0) char="/"
+        ;;
+    1) char="-"
+        ;;
+    2) char="\\"
+        ;;
+    3) char="|"
+       ;;
+  esac  
+  
+  sleep .2
+  echo -ne $char "\r"
+  count=$[$count+1]
+done
+}
